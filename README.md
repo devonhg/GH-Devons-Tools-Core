@@ -15,6 +15,13 @@ are included that make adding some wordpress features a snap. The strength of th
 the inc folder and utilize them without any additional code. 
 
 #Post-Type Class
+
+##Usage
+In the core php file, declare an instance of the post-type class like so:  
+`$pt_books = new MYPLUGIN_post_type( "Books", "Book" );`  
+This creates a "Books" post type. You can of course address any properties or methods using the "$pt_books" variable.  
+
+
 ##Dependencies:   
 class-meta-box.php  
 class-pt-shortcodes.php  
@@ -31,12 +38,12 @@ __construct($name, $name_singular) : This function of course represents the fiel
 
 reg_tax($name, $name_singular) : This method registers a taxonomy to the post type, creates an instance of the taxonomy class. 
 
-reg_meta($title, $desc, $type="text", $options = null) : Registers a meta to a post type, basically allows for additional options to be filled in for a post type. The type optoisn are as follows:  
-`
-"text" : A simple text-box input field.    
+reg_meta($title, $desc, $type="text", $options = null) : Registers a meta to a post type, basically allows for additional options to be filled in for a post type. The type options are as follows:  
+
+"text" : A simple text-box input field. Default Value.   
 "radio" : Radio buttons, options can be defined under the "options" argument as an array, ex: array(option1, option2, ..).    
 "textarea" : A larger text area, good for large bodies of text.    
 "color" : Uses the wordpress color picker for a color.    
-`
-All meta fields associated with a post type is shown as a list. 
+
+All meta fields associated with a post type is shown as a list. This creates an instance of the meta-box class. 
 
