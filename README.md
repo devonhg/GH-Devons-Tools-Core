@@ -4,7 +4,7 @@ This is a core wordpress plugin for developing other plugins upon. It includes m
 ##Setup
 Do a "find/replace" accross the directory for "MYPLUGIN" and replace
 with your plugin name. This replaces all the class/function names with your
-plugins name and will avoid and clashing with other plugins that may happen
+plugins so it will avoid clashing with other plugins that may happen
 to use this framework. 
 
 Once that is complete, simply zip it and install it on your test wordpress website. 
@@ -19,7 +19,10 @@ the inc folder and utilize them without any additional code.
 ##Usage
 In the core php file, declare an instance of the post-type class like so:  
 `$pt_books = new MYPLUGIN_post_type( "Books", "Book" );`  
-This creates a "Books" post type. You can of course address any properties or methods using the "$pt_books" variable.  
+This creates a "Books" post type. You can of course address any properties or methods using the "$pt_books" variable. The reg_tax and reg_meta methods can then be used to add taxonomies and meta to the post type. 
+
+`$pt_books->reg_tax("Genres", "Genre" );`  
+`$pt_books->reg_meta('Price', 'The Cost of Item');`  
 
 
 ##Dependencies:   
@@ -36,14 +39,24 @@ $pt_slug : The slug of the post type.
 ##Methods  
 __construct($name, $name_singular) : This function of course represents the fields that must be filled out when first creating the post type 
 
-reg_tax($name, $name_singular) : This method registers a taxonomy to the post type, creates an instance of the taxonomy class. 
+reg_tax($name, $name_singular) : This method registers a taxonomy to the post type, creates an instance of the taxonomy class. Returns the class object (refer to Taxonomy Class). 
 
-reg_meta($title, $desc, $type="text", $options = null) : Registers a meta to a post type, basically allows for additional options to be filled in for a post type. The type options are as follows:  
+reg_meta($title, $desc, $type="text", $options = null) : Registers a meta to a post type, basically allows for additional options to be filled in for a post type. This creates an instance of the meta-box class. Returns the class object (Refer to Meta Class). 
+
+The type options are as follows:  
 
 "text" : A simple text-box input field. Default Value.   
 "radio" : Radio buttons, options can be defined under the "options" argument as an array, ex: array(option1, option2, ..).    
 "textarea" : A larger text area, good for large bodies of text.    
 "color" : Uses the wordpress color picker for a color.    
 
-All meta fields associated with a post type is shown as a list. This creates an instance of the meta-box class. 
+All meta fields associated with a post type is shown as a list.   
 
+#Taxonomy Class
+
+##Usage
+In the core php file we can include a taxonomy to a post-type manually, example:  
+` $var = new MYPLUGIN_pt_tax("Genres", "Genre", "pt_book" ); `
+The example will add the "Genres" to the post type "pt_book". 
+
+Generally though, you will simply use the post type method. 

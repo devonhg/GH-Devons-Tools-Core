@@ -9,7 +9,7 @@ class MYPLUGIN_pt_tax{
     var $pt_slug; 
 
     //Name, Name Singular, Slug, Post-type Slug to use. 
-	public function __construct($name, $name_s, /*$tax_slug,*/ $pt_slug){
+	public function __construct($name, $name_s, $pt_slug){
         $this->name = $name;
         $this->name_s = $name_s;
         $this->tax_slug = "tax_" . trim(strtolower($name_s));

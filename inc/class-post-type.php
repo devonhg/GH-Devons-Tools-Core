@@ -55,10 +55,12 @@ class MYPLUGIN_post_type{
     }
 
     public function reg_tax($name, $name_s ){
-        new MYPLUGIN_pt_tax($name, $name_s, $this->pt_slug );
+        $a = new MYPLUGIN_pt_tax($name, $name_s, $this->pt_slug );
+        return $a;
     }
     public function reg_meta($title, $desc, $typ = "text", $options = null){
-        new MYPLUGIN_pt_meta($title, $desc, $this->pt_slug, $typ, $options );
+        $a = new MYPLUGIN_pt_meta($title, $desc, $this->pt_slug, $typ, $options );
+        return $a;
     }
 
     public function initiate_cpt(){
