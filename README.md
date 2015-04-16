@@ -68,11 +68,13 @@ $tax_slug : The slug of the taxonomy
 $pt_slug : The slug of the post type it's assigned to.   
 
 #Meta Box Class
+
+##Usage
 In the core php file we can include a meta box to a post type, it can be done so manually like so. 
 ` $var = MYPLUGIN_pt_meta("Price", "Cost of Item", "pt_book", $type = "text", $options = null) `
 This manually adds the meta box "Price" the "pt_book" post type. Returns the class object of the post type. 
 
-#Properties
+##Properties
 
 $id : The id of the meta box, essentially the slug.   
 $title : The title of the meta box.  
