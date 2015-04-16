@@ -13,15 +13,17 @@ class MYPLUGIN_DFIW_tb{
 
     	$dir = MYPLUGIN_DFIW_tb::validate_slashes( $dir ); 
 
-    	foreach (glob( MYPLUGIN_HOME_DIR . $dir . "*." . $ftype ) as $filename){
-			if ($ftype == "php"){
-				include_once( $filename );
-			}else if ($ftype == "css"){
-				wp_enqueue_style( basename( $filename ) , MYPLUGIN_HOME_URL . $dir . basename( $filename ) );
-			}else if ($ftype == "js"){
-				wp_enqueue_script( basename( $filename ) , MYPLUGIN_HOME_URL . $dir . basename( $filename ) );
-			}
-		}
+        if ( file_exists( MYPLUGIN_HOME_DIR . $dir ) ){
+        	foreach (glob( MYPLUGIN_HOME_DIR . $dir . "*." . $ftype ) as $filename){
+    			if ($ftype == "php"){
+    				include_once( $filename );
+    			}else if ($ftype == "css"){
+    				wp_enqueue_style( basename( $filename ) , MYPLUGIN_HOME_URL . $dir . basename( $filename ) );
+    			}else if ($ftype == "js"){
+    				wp_enqueue_script( basename( $filename ) , MYPLUGIN_HOME_URL . $dir . basename( $filename ) );
+    			}
+    		}
+        }
     }
 
     //This function takes an inputed directory and makes sure that 
