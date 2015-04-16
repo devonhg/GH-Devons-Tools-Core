@@ -60,3 +60,27 @@ In the core php file we can include a taxonomy to a post-type manually, example:
 The example will add the "Genres" to the post type "pt_book". 
 
 Generally though, you will simply use the post type method. 
+
+##Properties
+$name : The name of the taxonomy
+$name_s : The singular name
+$tax_slug : The slug of the taxonomy
+$pt_slug : The slug of the post type it's assigned to. 
+
+#Meta Box Class
+In the core php file we can include a meta box to a post type, it can be done so manually like so. 
+` $var = MYPLUGIN_pt_meta("Price", "Cost of Item", "pt_book", $type = "text", $options = null) `
+This manually adds the meta box "Price" the "pt_book" post type. Returns the class object of the post type. 
+
+#Properties
+
+$id : The id of the meta box, essentially the slug. 
+$title : The title of the meta box.
+$pt : The post type it's associated with. 
+$desc : The descripion of hte post type. 
+$val_key : The value key, usable in the "$instance" variable
+$met_nonce : nonce value
+$cust_box : Custom box Value
+$new_field : New Field Value
+$type : The type of meta box
+$options : The options array. 
