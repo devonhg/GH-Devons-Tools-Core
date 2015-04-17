@@ -65,6 +65,7 @@ class MYPLUGIN_pt_meta {
 
 	public function color_style_f(){
 		wp_enqueue_style( 'wp-color-picker' ); 
+		wp_enqueue_script( 'my-script-handle', MYPLUGIN_HOME_URL . "library/colorpicker.js" , array( 'wp-color-picker' ), false, true );	
 	}
 
 	//If the conditions clear for the construct function, 
