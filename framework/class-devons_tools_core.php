@@ -5,6 +5,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 file_put_contents(  MYPLUGIN_HOME_DIR . "/framework/scratch.php" , "" );
 include_once( MYPLUGIN_HOME_DIR . '/framework/class-toolbox.php' ); 
+include_once( MYPLUGIN_HOME_DIR . '/framework/functions.php' ); 
 
 //Include files in "includes" folder
 MYPLUGIN_DFIW_tb::include_folder( "library/" , "php" );
@@ -25,11 +26,13 @@ class MYPLUGIN_devons_tools_core {
 
         file_put_contents(  MYPLUGIN_HOME_DIR . "/framework/scratch.php" , $fp );
 
-        $directories = scandir( MYPLUGIN_HOME_DIR . '/' . $d );
+        $root_dir = MYPLUGIN_HOME_DIR . '/';
+
+        $directories = scandir( $root_dir . $d );
         //Generate functions file for hooks.
         foreach( $directories as $dir ){
             if ($dir != "admin" && $dir !== '.' && $dir !== '..'){
-                if ( is_dir(  MYPLUGIN_HOME_DIR . '/' . $d . '/' . $dir ) ){
+                if ( is_dir(  $root_dir . $d . '/' . $dir ) ){
                     if ($d != "php"){
                         $fp .= "
                             function MYPLUGIN_" . $dir . " (){
@@ -51,7 +54,7 @@ class MYPLUGIN_devons_tools_core {
 
         foreach( $directories as $dir ){  
             if ($dir != "admin" && $dir !== '.' && $dir !== '..'){
-                if ( is_dir(  MYPLUGIN_HOME_DIR . '/' . $d .'/' . $dir ) ){
+                if ( is_dir(  $root_dir . $d .'/' . $dir ) ){
 
                     include_once( MYPLUGIN_HOME_DIR . "/framework/scratch.php" );
 
