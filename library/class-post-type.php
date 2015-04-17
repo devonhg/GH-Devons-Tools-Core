@@ -1,39 +1,5 @@
 <?php
 if ( ! defined( 'WPINC' ) ) { die; }
-/*
-    Dependencies
-        class-meta-box.php
-        class-taxonomy.php
-        class-pt_shortcodes.php
-        functions.php
-
-    The reason for the Dependencies lies in the reg_* methods, which
-    directly use these classes in order to register meta or taxes to the
-    post type. 
-
-    This class allows the easy addition of a post type to a wordpress
-    installation. Example:
-
-        $pt_books = new MYPLUGIN_post_type("Books", "Book", "pt_books");
-
-    Will generate a post type for "books". Run this in the core plugin file. 
-
-
-
-    Additional methods within the class can be ran to add more functionality,
-    for instance...
-
-        $pt_books->reg_tax("Authors", "Author", "tax_authors");
-
-        $pt_books->reg_meta('Price', 'The Cost of Item');
-
-    Using the methods reg_tax and reg_meta we just created new taxonomies and
-    meta boxes for this post type. 
-
-
-    The slug for the post type is generated as pt_name (singluar, all lower case). 
-
-*/
 
 if ( ! get_theme_support( 'post-thumbnails' )) add_theme_support('post-thumbnails');
 

@@ -1,10 +1,5 @@
 <?php
 if ( ! defined( 'WPINC' ) ) { die; }
-/*
-	The purpose of this class is to register post-type specific shortcodes.
-	Using the structure below these shortcodes become available and associated
-	with the specified post type. 
-*/
 
 add_filter( 'widget_text', 'shortcode_unautop' );
 add_filter( 'widget_text', 'do_shortcode' );

@@ -1,22 +1,5 @@
 <?php
 if ( ! defined( 'WPINC' ) ) { die; }
-/*
-    Dependencies
-		none
-
-	This class generates a post meta box for a given post type. This
-	class is also directly used by the post-type generation class in the
-	reg_meta() method. 
-
-	Example:
-
-		new MYPLUGIN_pt_meta('Price', 'The Cost of Item');
-
-	This creates an instance of the class and goes through the motions of creating
-	a metabox for 'price' for the built in post system. In order to retrieve the value
-	of meta_price for displaying on the front end you would use the code "meta_price_vkey".
-	It generates the value key by simply adding _vkey at the end of the id. 
-*/
 
 class MYPLUGIN_pt_meta {
 
@@ -30,8 +13,6 @@ class MYPLUGIN_pt_meta {
 	var $new_field;
 	var $type;
 	var $options; 
-	//var $pre;
-	//var $pst; 
 
 	//The color picker styles to enqeue if neccessary
 	public function wptuts_add_color_picker_s( $hook ) {
@@ -55,8 +36,6 @@ class MYPLUGIN_pt_meta {
 			$this->new_field = $this->id . "_new_field";
 			$this->type = $type; 
 			$this->options = $options; 
-			//$this->pre = $pre; 
-			//$this->post = $pst; 
 
 			add_action( 'load-post.php', array( $this, 'call_mb' ) );
     		add_action( 'load-post-new.php', array( $this, 'call_mb' ) );
@@ -78,7 +57,7 @@ class MYPLUGIN_pt_meta {
 	 * Adds the meta box container.
 	 */
 	public function add_meta_box( $post_type ) {
-            $post_types = $this->pt;     //limit meta box to certain post types
+            $post_types = $this->pt; //limit meta box to certain post types
 	            if (is_array($this->pt)){
 		            if ( in_array( $post_type, $post_types )) {
 						add_meta_box(
