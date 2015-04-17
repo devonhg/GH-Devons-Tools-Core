@@ -86,3 +86,15 @@ $cust_box : Custom box Value
 $new_field : New Field Value  
 $type : The type of meta box  
 $options : The options array.   
+
+
+#Shortcodes
+
+##[ptslug_single entry='2']
+
+This shortcode displays an single entry, an ID or slug can be passed.
+
+##[ptslug_archive args='argument']
+
+This shortcode displays an archive of the specified post type. Args goes
+straight into a WP_Query function so you can customize the output. 
