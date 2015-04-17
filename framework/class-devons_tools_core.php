@@ -8,7 +8,7 @@ include_once( MYPLUGIN_HOME_DIR . '/framework/class-toolbox.php' );
 
 //Include files in "includes" folder
 MYPLUGIN_DFIW_tb::include_folder( "library/" , "php" );
-MYPLUGIN_DFIW_tb::include_folder( "inc/" , "php" );
+MYPLUGIN_DFIW_tb::include_folder( "php/" , "php" );
 
 class MYPLUGIN_devons_tools_core {
 
@@ -17,6 +17,7 @@ class MYPLUGIN_devons_tools_core {
     function __construct(){
         $this->enqueue_files("css");
         $this->enqueue_files("js");
+        $this->enqueue_files("php");
     }
 
     function enqueue_files( $d ){
@@ -29,11 +30,19 @@ class MYPLUGIN_devons_tools_core {
         foreach( $directories as $dir ){
             if ($dir != "admin" && $dir !== '.' && $dir !== '..'){
                 if ( is_dir(  MYPLUGIN_HOME_DIR . '/' . $d . '/' . $dir ) ){
-                    $fp .= "
-                        function MYPLUGIN_" . $dir . " (){
-                            MYPLUGIN_DFIW_tb::include_folder( '" . $d . "/" . $dir . "/' , 'css' );
-                        }
-                    ";
+                    if ($d != "php"){
+                        $fp .= "
+                            function MYPLUGIN_" . $dir . " (){
+                                MYPLUGIN_DFIW_tb::include_folder( '" . $d . "/" . $dir . "/' , '" . $d . "' );
+                            }
+                        ";
+                    }else{
+                        $fp .= "
+                            function MYPLUGIN_" . $dir . " (){
+                                MYPLUGIN_DFIW_tb::include_folder( '" . $d . "/" . $dir . "/' , 'php' );
+                            }
+                        ";                        
+                    }
                 }             
             }
         }

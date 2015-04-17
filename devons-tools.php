@@ -16,10 +16,7 @@ if ( ! defined( 'WPINC' ) ) { die; }
 	do a "find/replace" accross the directory for "MYPLUGIN" and replace
 	with your plugin name. 
 
-	Any files put into the js, inc, or css folders automatically get 
-	included or enqeued. Files put into the root of these folders for 
-	js or css get enqeued to the front end, while anything put into
-	'admin' folder gets enqeued into the back-end. 
+	Any files put into the inc folder automatically get included. 
 */
 
 define("MYPLUGIN_HOME_DIR", plugin_dir_path( __FILE__ ));
