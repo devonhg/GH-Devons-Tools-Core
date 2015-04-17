@@ -63,6 +63,10 @@ class MYPLUGIN_pt_meta {
 		}
 	}
 
+	public function color_style_f(){
+		wp_enqueue_style( 'wp-color-picker' ); 
+	}
+
 	//If the conditions clear for the construct function, 
 	public function call_mb() {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
@@ -187,6 +191,8 @@ class MYPLUGIN_pt_meta {
 				echo "<textarea name='" . $this->new_field . "'>" . esc_attr( $value ) . "</textarea>";
         }
         if ( $this->type == "color" ){
+        	add_action( "admin_print_styles", array( $this, "color_style_f" ) );
+
         	if ( $value == "" ) $value = "#aaa"; 
 
         	//add_action( 'admin_print_scripts', array( $this , 'wptuts_add_color_picker_s') );
