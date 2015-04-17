@@ -12,8 +12,8 @@ class MYPLUGIN_pt_tax{
 	public function __construct($name, $name_s, $pt_slug){
         $this->name = $name;
         $this->name_s = $name_s;
-        $this->tax_slug = "tax_" . trim(strtolower($name_s));
         $this->pt_slug = $pt_slug;
+        $this->tax_slug = "tax_" . trim(strtolower($name_s)) . "_" . $pt_slug;
 
         add_action( 'init', array($this, 'initiate_cpt_tax'), 0 );
         add_action( 'plugins_loaded', array($this, 'plugins_action') );

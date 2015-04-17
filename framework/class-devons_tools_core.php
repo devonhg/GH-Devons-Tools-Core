@@ -8,6 +8,7 @@ include_once( MYPLUGIN_HOME_DIR . '/framework/class-toolbox.php' );
 
 //Include files in "includes" folder
 MYPLUGIN_DFIW_tb::include_folder( "library/" , "php" );
+MYPLUGIN_DFIW_tb::include_folder( "inc/" , "php" );
 
 class MYPLUGIN_devons_tools_core {
 
