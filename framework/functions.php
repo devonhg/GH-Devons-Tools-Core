@@ -81,9 +81,9 @@ function MYPLUGIN_single( $archive = false , $display = null , $pt = null, $post
 
     	//Check if archive, and if so change the behavior of the post. 
     	if ($archive){
-    		$out .= "<article class='clearfix " . $classes . "'>";	
+    		$out .= "<article class='clearfix " . $classes . " pt-archive'>";	
     	}else{
-    		$out .= "<article class='clearfix " . $pst_name . "-archive " . $classes . "'>";
+    		$out .= "<article class='clearfix pt-single " . $classes . "'>";
     	}
 
     		//Title of post
