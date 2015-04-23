@@ -1,8 +1,7 @@
 <?php
 if ( ! defined( 'WPINC' ) ) { die; }
+
 /*
-	This is a file that contains various functions that are useful to the plugin. 
-*/
 
 // Function by David Paulsson, get ID from slug. Modified to also consider post type by Devon Godfrey.  
 // MYPLUGIN_get_id_by_slug('any-page-slug');
@@ -15,22 +14,7 @@ function MYPLUGIN_get_id_by_slug($page_slug, $pt) {
 	}
 } 
 
-/*
-	Use this function get a single post, used in the archive function
-	as the basic layout. Will take either the post ID or post slug. 
 
-	$archive : Boolean, determines how the post is display, ex: whether
-	or not title links to single page. 
-
-	$display : Array/null, an associative array that determines what exactly is outputted
-	onto the page. 
-
-	$pt : String, Post type, if within the loop it fetches this automatically. 
-
-	$post_slug : String/Int, Slug or ID of the specified post you want to display, if 
-	within the loop it's obtained automatically. 
-
-*/
 function MYPLUGIN_single( $archive = false , $display = null , $pt = null, $post_slug = null ){
 
 	if ( is_array( $display ) ){
@@ -145,10 +129,10 @@ function MYPLUGIN_single( $archive = false , $display = null , $pt = null, $post
 	}
 }
 
-/*
-	This is a helper function, used to gather the categories for
-	a given post. 
-*/
+
+	//This is a helper function, used to gather the categories for
+	//a given post. 
+
 function MYPLUGIN_get_cats( $tax , $post_slug = null, $pt = null ){
     $output = "";
     $tax_terms = get_terms( $tax );
@@ -217,3 +201,5 @@ function MYPLUGIN_archive( $args , $wpargs = "" , $pt = null ){
         return $out; 
     }
 }
+
+*/

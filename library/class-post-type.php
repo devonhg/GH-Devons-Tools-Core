@@ -8,6 +8,22 @@ class MYPLUGIN_post_type{
     var $name;
     var $name_s;
     var $pt_slug;  
+    var $display = array(
+        'single' => array(
+            'isTitle' => true,
+            'isFI' => true,
+            'isMeta' => true,
+            'isContent' => true,
+            'isCats' => true,
+        ),
+        'archive' => array(
+            'isTitle' => true,
+            'isFI' => true,
+            'isMeta' => true,
+            'isContent' => true,
+            'isCats' => true,
+        ),
+    );
 
     //All actions to be performed goes here. 
     //Name, Name Singular, Slug
